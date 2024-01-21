@@ -1,0 +1,22 @@
+anyio @ file:///opt/concourse/worker/volumes/live/eb44598f-565b-45e7-4c50-c1ae70306e18/volume/anyio_1644481722202/work/dist
+click @ file:///private/var/folders/c_/qfmhj66j0tn016nkx_th4hxm0000gp/T/abs_f27dk3zwrb/croot/click_1698129816363/work
+fastapi @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_cdj0ftnakq/croot/fastapi_1693295411694/work
+freetype-py==2.1.0.post1
+glfw==1.11.2
+h11 @ file:///tmp/build/80754af9/h11_1620423447028/work
+hsluv==5.0.3
+idna @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_00jf0h4zbt/croot/idna_1666125573348/work
+kiwisolver==1.4.4
+p5==0.8.2
+pybind11==2.10.4
+pydantic @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_92rc5e4spx/croot/pydantic_1695798855907/work
+PyOpenGL==3.1.6
+PyOpenGL-accelerate==3.1.6
+python-multipart==0.0.6
+requests==2.31.0
+skia-python==87.5
+sniffio @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_a46njf828g/croot/sniffio_1705431298111/work
+starlette @ file:///private/var/folders/c_/qfmhj66j0tn016nkx_th4hxm0000gp/T/abs_0fv66xu39f/croot/starlette-recipe_1692980412920/work
+typing_extensions @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_31f_f02huc/croot/typing_extensions_1705599310686/work
+uvicorn @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_d80hhx7s7h/croot/uvicorn-split_1678090080474/work
+vispy==0.10.0
