@@ -30,7 +30,7 @@ async def call_api(api_endpoint, **payload):
 
 
 async def call_txt2img_api(**payload):
-    response = call_api('sdapi/v1/txt2img', **payload)
+    response = await call_api('sdapi/v1/txt2img', **payload)
     response2user = []
     res = []
     for index, image in enumerate(response.get('images')):
@@ -41,7 +41,7 @@ async def call_txt2img_api(**payload):
 
 
 async def call_img2img_api(**payload):
-    response = call_api('sdapi/v1/img2img', **payload)
+    response = await call_api('sdapi/v1/img2img', **payload)
     response2user = []
     res = []
     for index, image in enumerate(response.get('images')):
