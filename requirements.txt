@@ -22,5 +22,7 @@ typing_extensions==4.9.0
 uvicorn==0.20.0
 vispy==0.10.0
 wheel==0.41.2
-python-dotenv
+python-dotenv~=1.0.1
 rembg==2.0.53
+
+aiohttp~=3.9.1

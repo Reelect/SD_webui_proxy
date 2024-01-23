@@ -1,9 +1,11 @@
 from datetime import datetime
 import urllib.request
+import aiohttp
 import base64
 import json
 import time
 import os
+import asyncio
 from dotenv import load_dotenv
 
 
@@ -12,21 +14,21 @@ webui_server_url = os.environ["webui-api"]
 port = 0
 
 
-async def timestamp():
+def timestamp():
     return datetime.fromtimestamp(time.time()).strftime("%Y%m%d-%H%M%S")
 
 
 async def call_api(api_endpoint, **payload):
     global port
-    data = json.dumps(payload).encode('utf-8')
-    request = urllib.request.Request(
-        f'{webui_server_url+str(port)}/{api_endpoint}',
-        headers={'Content-Type': 'application/json'},
-        data=data,
-    )
     port = (port + 1) % 8
-    response = await urllib.request.urlopen(request)
-    return json.loads(response.read().decode('utf-8'))
+    data = json.dumps(payload).encode('utf-8')
+
+    async with aiohttp.ClientSession() as session:
+        url = f'{webui_server_url + str(port)}/{api_endpoint}'
+        headers = {'Content-Type': 'application/json'}
+        async with session.post(url, data=data, headers=headers) as response:
+            response_data = await response.text()
+            return json.loads(response_data)
 
 
 async def call_txt2img_api(**payload):
