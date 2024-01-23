@@ -6,7 +6,7 @@ import time
 import os
 
 webui_server_url = os.environ["webui-api"]
-
+port = 0
 
 def timestamp():
     return datetime.fromtimestamp(time.time()).strftime("%Y%m%d-%H%M%S")
@@ -18,12 +18,14 @@ def encode_file_to_base64(path):
 
 
 def call_api(api_endpoint, **payload):
+    global port
     data = json.dumps(payload).encode('utf-8')
     request = urllib.request.Request(
-        f'{webui_server_url}/{api_endpoint}',
+        f'{webui_server_url+str(port)}/{api_endpoint}',
         headers={'Content-Type': 'application/json'},
         data=data,
     )
+    port = (port + 1) % 8
     response = urllib.request.urlopen(request)
     return json.loads(response.read().decode('utf-8'))
 

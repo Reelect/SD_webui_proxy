@@ -64,18 +64,18 @@ async def txt2img(prompt: str = "disney character style, pixar, cute, petit, mal
 @app.post("/img2img")
 async def img2img(init_image: UploadFile(...) = File()):
     payload = {
-        "prompt": "disney character style, pixar, cute, petit, male, asian, 3D",
+        "prompt": "watercolor, anime, portrait, cute, highly detailed, solo, head-on",
         "negative_prompt": "ugly, extra fingers, deformed hands, mutant hands, fusioned hands, deformed, mutant, bad "
-                           "anatomy, letter",
-        "seed": 256660272,
-        "steps": 80,
-        "width": 960,
-        "height": 960,
-        "cfg_scale": 15,
+                           "anatomy",
+        "seed": 4212083116,
+        "steps": 100,
+        "width": 1000,
+        "height": 1000,
+        "cfg_scale": 13,
         "sampler_name": "DPM++ 2M Karras",
-        "denoising_strength": 0.72,
+        "denoising_strength": 0.65,
         "batch_size": 1,
-        "resize_mode": 1,
+        "resize_mode": 0,
 
         # example args for x/y/z plot
         # "script_name": "x/y/z plot",
@@ -103,7 +103,7 @@ async def img2img(init_image: UploadFile(...) = File()):
                 "args": [
                     True,
                     "sd_xl_refiner_1.0.safetensors",
-                    0.5
+                    0.4
                 ]
             }
         },

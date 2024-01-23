@@ -3,7 +3,7 @@ FROM python:3.10
 #
 WORKDIR /usr/src/app
 RUN apt-get update
-RUN apt-get -y install libgl1-mesa-glx
+RUN apt-get -y install libgl1-mesa-glx python3-dev default-libmysqlclient-dev build-essential pkg-config;
 #
 COPY ./requirements.txt .
 
