@@ -1,11 +1,15 @@
 import base64
+import os
 
 from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import Response
+from dotenv import load_dotenv
 
-from util import call_txt2img_api, call_img2img_api
+from util import call_txt2img_api, call_img2img_api, RemoveBg
 
+load_dotenv()
 app = FastAPI()
+rmbg = RemoveBg(os.environ["rmbg_api"], "error.log")
 
 
 @app.get("/txt2img")
@@ -112,4 +116,5 @@ async def img2img(init_image: UploadFile(...) = File()):
         # },
     }
     res = await call_img2img_api(**payload)
-    return Response(content=res[1], media_type="image/png")
+    removed = await rmbg.remove_background_from_base64_img(res[1])
+    return Response(content=removed, media_type="image/png")
