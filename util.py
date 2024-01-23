@@ -11,16 +11,12 @@ load_dotenv()
 webui_server_url = os.environ["webui-api"]
 port = 0
 
-def timestamp():
+
+async def timestamp():
     return datetime.fromtimestamp(time.time()).strftime("%Y%m%d-%H%M%S")
 
 
-def encode_file_to_base64(path):
-    with open(path, 'rb') as file:
-        return base64.b64encode(file.read()).decode('utf-8')
-
-
-def call_api(api_endpoint, **payload):
+async def call_api(api_endpoint, **payload):
     global port
     data = json.dumps(payload).encode('utf-8')
     request = urllib.request.Request(
@@ -29,7 +25,7 @@ def call_api(api_endpoint, **payload):
         data=data,
     )
     port = (port + 1) % 8
-    response = urllib.request.urlopen(request)
+    response = await urllib.request.urlopen(request)
     return json.loads(response.read().decode('utf-8'))
 
 
