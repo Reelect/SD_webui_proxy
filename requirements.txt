@@ -24,4 +24,4 @@ uvicorn==0.20.0
 vispy==0.10.0
 wheel==0.41.2
 python-dotenv
-removebg==0.4
+rembg==2.0.53
